@@ -4,7 +4,8 @@
   "description": "chatapp glu",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js --exec babel-node -e js"
+    "start": "nodemon ./index.js --exec",
+    "dev": "nodemon ./index.js --exec babel-node -e js"
   },
   "repository": {
     "type": "git",
