@@ -6,7 +6,10 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/html/index.html');
 });
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
 io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
@@ -15,8 +18,4 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });
-});
-
-http.listen(3000, () => {
-    console.log('listening on *:3000');
 });
