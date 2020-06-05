@@ -6,6 +6,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/html/index.html');
 });
 
+const port = process.env.PORT || 3000;
 io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg);
