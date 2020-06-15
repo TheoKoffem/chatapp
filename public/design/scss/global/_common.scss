@@ -1,0 +1,60 @@
+* {
+    font-family: Arial, sans-serif;
+}
+a {
+    text-decoration: none;
+}
+button:focus, input:focus {
+    outline: none;
+}
+button:hover {
+    cursor: pointer;
+}
+body {
+    margin: 0;
+    background: $primary-light;
+}
+@media screen and (max-width: $breakpoint-mobile) {
+    body {
+        background: $primary-dark;
+    }
+}
+.mobile {
+    display: none!important;
+    @media (max-width: $breakpoint-mobile) {
+        display: flex!important;
+    }
+}
+.desktop {
+    display: flex!important;
+    @media (max-width: $breakpoint-mobile) {
+        display: none!important;
+    }
+}
+.space-between {
+    justify-content: space-between;
+}
+.pl-96 {
+    padding-left: 96px;
+}
+.pl-25 {
+    padding-left: 25px;
+}
+.pr-25 {
+    padding-right: 25px;
+}
+.row {
+    width: 100%;
+}
+.col {
+    display: flex;
+}
+.flex-col {
+    flex-direction: column;
+}
+.h-full {
+    height: 100%;
+}
+.flex {
+    display: flex;
+}

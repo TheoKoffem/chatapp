@@ -1,0 +1,85 @@
+.home-container {
+    height: calc(100vh - 248px);
+    display: flex;
+    align-items: center;
+    margin: 0px 25px;
+    @media (max-width: $breakpoint-mobile) {
+        align-items: unset;
+        padding-top: 154px;
+    }
+    .row {
+        width: 100%;
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            @media (max-width: $breakpoint-mobile) {
+                flex-direction: column;
+                padding: 0px 17px;
+            }
+            form {
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @media (max-width: $breakpoint-mobile) {
+                    width: 100%;
+                    padding: 0px 17px 0px 17px;
+                }
+                input {
+                    background: $input;
+                    height: 54px;
+                    width: 370px;
+                    border: none;
+                    border-radius: 30px;
+                    color: $input-placeholder;
+                    font-size: 20px;
+                    padding-left: 20px;
+                    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+                    &::placeholder {
+                        color: $input-placeholder;
+                    }
+                }
+                button {
+                    height: 45px;
+                    width: 45px;
+                    border-radius: 25px;
+                    border: none;
+                    background: $input-light;
+                    margin-left: -50px;
+                    z-index: 100;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    img {
+                        width: 28.33px;
+                        height: 28px;
+                    }
+                    @media (max-width: $breakpoint-mobile) {
+                        margin-left: -45px;
+                    }
+                }
+            }
+            .main-text {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                @media (max-width: $breakpoint-mobile) {
+                    width: 100%;
+                    padding-top: 75px;
+                }
+                p {
+                    max-width: 590px;
+                    font-size: 33px;
+                    color: $text;
+                    padding: 25px;
+                    @media (max-width: $breakpoint-mobile) {
+                        font-size: 15px;
+                        max-width: 268px;
+                    }
+                }
+            }
+        }
+    }
+}
