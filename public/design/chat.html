@@ -21,74 +21,109 @@
                     <div class="menu desktop">
                         <ul>
                             <a href="#" class="active">
-                                <li>ROOMS<img src="" alt="R"></li>
+                                <li>ROOMS<img src="./img/message.svg" alt="R"></li>
                             </a>
                             <a href="#">
-                                <li>USERS<img src="" alt="U"></li>
+                                <li>USERS<img src="./img/users.svg" alt="U"></li>
                             </a>
                             <a href="#">
-                                <li>QUIT<img src="" alt="Q"></li>
+                                <li>QUIT<img src="./img/signout.svg" alt="Q"></li>
                             </a>
                         </ul>
                     </div>
-                    <button class="dropdown mobile"><img src="img/dropdown.svg" alt="="></button>
+                    <button class="dropdown mobile"><img src="./img/dropdown.svg" alt="="></button>
                 </div>
             </div>
         </div>
     </header>
-    <aside class="flex">
-        <div class="side-container">
-            <div class="rooms">
-                <div class="row">
-                    <div class="room">
-                        <div class="col flex-col pl-25">
-                            <div class="roomname ">Chillout Place</div>
-                            <div class="roomdesc">Don't Worry, Be Chatty</div>
+    <div class="middle flex">
+        <aside class="flex">
+            <div class="side-container">
+                <div class="rooms">
+                    <div class="row">
+                        <div class="room">
+                            <div class="col flex-col pl-25">
+                                <div class="roomname ">Chillout Place</div>
+                                <div class="roomdesc">Don't Worry, Be Chatty</div>
+                            </div>
+                            <div class="col h-full pr-25">
+                                <div class="usersjoined">69</div>
+                            </div>
                         </div>
-                        <div class="col h-full pr-25">
-                            <div class="usersjoined">69</div>
+                        <div class="room active">
+                            <div class="col flex-col pl-25">
+                                <div class="roomname ">Chillout Place</div>
+                                <div class="roomdesc">Don't Worry, Be Chatty</div>
+                            </div>
+                            <div class="col h-full pr-25">
+                                <div class="usersjoined">69</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="room active">
-                        <div class="col flex-col pl-25">
-                            <div class="roomname ">Chillout Place</div>
-                            <div class="roomdesc">Don't Worry, Be Chatty</div>
+                        <div class="room">
+                            <div class="col flex-col pl-25">
+                                <div class="roomname ">Chillout Place</div>
+                                <div class="roomdesc">Don't Worry, Be Chatty</div>
+                            </div>
+                            <div class="col h-full pr-25">
+                                <div class="usersjoined">69</div>
+                            </div>
                         </div>
-                        <div class="col h-full pr-25">
-                            <div class="usersjoined">69</div>
-                        </div>
-                    </div>
-                    <div class="room">
-                        <div class="col flex-col pl-25">
-                            <div class="roomname ">Chillout Place</div>
-                            <div class="roomdesc">Don't Worry, Be Chatty</div>
-                        </div>
-                        <div class="col h-full pr-25">
-                            <div class="usersjoined">69</div>
-                        </div>
-                    </div>
-                    <div class="room">
-                        <div class="col flex-col pl-25">
-                            <div class="roomname ">Chillout Place</div>
-                            <div class="roomdesc">Don't Worry, Be Chatty</div>
-                        </div>
-                        <div class="col h-full pr-25">
-                            <div class="usersjoined">69</div>
+                        <div class="room">
+                            <div class="col flex-col pl-25">
+                                <div class="roomname ">Chillout Place</div>
+                                <div class="roomdesc">Don't Worry, Be Chatty</div>
+                            </div>
+                            <div class="col h-full pr-25">
+                                <div class="usersjoined">69</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </aside>
-    <main class="desktop">
 
-    </main>
+        </aside>
+        <main class="desktop chat-container flex-col text-white">
+            <div class="message received">
+                <div class="row flex">
+                    <div class="username"><b>Andrea</b></div>
+                    <div class="time">&nbsp; said @ 18.15</div>
+                </div>
+                <div class="row">
+                    <div class="text">
+                        <p>Andrea is a long time away now! Is everything oke? I a’m just writing this long but useless
+                            piece of text because i just want to let you know what happens when someone writes a long
+                            long piece of text.Andrea is a long time away now! Is everything oke? I a’m just writing this long but useless
+                            piece of text because i just want to let you know what happens when someone writes a long
+                            long piece of text.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="message sent">
+                <div class="row flex">
+                    <div class="username"><b>Andrea</b></div>
+                    <div class="time">&nbsp; said @ 18.15</div>
+                </div>
+                <div class="row">
+                    <div class="text">
+                        <p>Andrea is a long time away now! Is everything oke? I a’m just writing this long but useless
+                            piece of text because i just want to let you know what happens when someone writes a long
+                            long piece of text.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="message sent"></div>
+            <div class="message received"></div>
+            <div class="message received"></div>
+            <div class="message sent"></div>
+            <div class="message sent"></div> -->
+        </main>
+    </div>
     <footer>
         <div class="footer-container">
             <div class="row flex mobile mobile-nav">
-                <div class="col chat"><img src="/img/message.svg" alt="M"></div>
-                <div class="col users"><img src="/img/users.svg" alt="M"></div>
-                <div class="col quit"><img src="/img/signout.svg" alt="M"></div>
+                <div class="col chat"><img src="./img/message.svg" alt="R"></div>
+                <div class="col users"><img src="./img/users.svg" alt="U"></div>
+                <div class="col quit"><img src="./img/signout.svg" alt="Q"></div>
             </div>
         </div>
     </footer>

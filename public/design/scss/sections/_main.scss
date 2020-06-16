@@ -83,3 +83,39 @@
         }
     }
 }
+.middle {
+    overflow: hidden;
+}
+.chat-container {
+    width: 97%;
+    height: calc(100vh - 248px);
+    padding-top: 141px;
+    margin: 0px 20px;
+    overflow: auto;
+    .message {
+        margin: 20px 0px;
+        width: 60%;
+        align-items: center;
+        padding: 25px;
+        p {
+            margin: 15px 0px 0px 0px;
+        }
+
+        &.received {
+            background: $chat-box;
+            border-radius: 25px 25px 25px 0px;
+            
+            .time {
+                color: $text;
+            }
+        }
+        &.sent {
+            background: $input-light;
+            align-self: flex-end;
+            border-radius: 25px 25px 0px 25px;
+            .time {
+                color: $input-light-secondary;
+            }
+        }
+    }
+}
