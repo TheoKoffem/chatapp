@@ -263,7 +263,7 @@ body {
   height: calc(100vh - 248px);
   padding-top: 141px;
   margin: 0px 20px;
-  overflow: auto;
+  overflow-y: scroll;
 }
 .chat-container .message {
   margin: 20px 0px;
@@ -330,6 +330,7 @@ aside .side-container .rooms .room:hover {
 aside .side-container .rooms .room .roomname {
   font-size: 22px;
   color: #fff;
+  text-align: left;
 }
 aside .side-container .rooms .room .roomdesc {
   color: #606060;
@@ -369,7 +370,7 @@ aside .side-container .rooms .room.active .roomdesc {
 }
 @media (max-width: 768px) {
   aside .side-container .rooms .room.active {
-    background: none !important;
+    background: #007EF4 !important;
   }
 }
 
@@ -454,5 +455,12 @@ aside .side-container .rooms .room.active .roomdesc {
   height: 16px;
   color: #fff;
 }
-
+.no-style {
+  background-color: none;
+  border: none;
+}
+.side-container .rooms button{
+  background: none;
+  border: none;
+}
 /*# sourceMappingURL=index.css.map */

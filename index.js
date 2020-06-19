@@ -1,82 +1,94 @@
-const app = require('express')();
-const http = require('http').createServer(app);
-const io = require('socket.io')(http);
-const PORT = process.env.PORT || 3000;
+const path = require('path');
+const http = require('http');
+const express = require('express');
+const socketio = require('socket.io');
 const {
-    getChats,
-    insertChats,
-    formatMessage,
-    userJoin,
-    getCurrentUser,
-    userLeave,
-    getRoomUsers
+  getChats,
+  insertChats,
+  formatMessage,
+  userJoin,
+  getCurrentUser,
+  userLeave,
+  getRoomUsers
 } = require('./queries');
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
-});
+const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
+var _ = require('underscore');
+
 app.get('/chat', (req, res) => {
-    res.sendFile(__dirname + '/public/chat.html');
-});
-app.get('/chat.js', (req, res) => {
-    res.sendFile(__dirname + '/public/js/chat.js');
-});
-app.get('/home.js', (req, res) => {
-    res.sendFile(__dirname + '/public/js/home.js');
+  res.sendFile(__dirname + '/public/chat.html');
 });
 
-http.listen(PORT, () => {
-    console.log(`Our app is running on port ${PORT}`);
-});
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-const client = io.of('/client');
+const bot = 'bot';
 
-client.on('connection', socket => {
-    socket.on('join', ({ username, room }) => {
-        const user = userJoin(socket.id, username, room);
+// Run when client connects
+io.on('connection', socket => {
+  socket.on('joinRoom', ({ username, room }) => {
+    const user = userJoin(socket.id, username, room);
+    // console.log(user);
+    socket.join(user.room);
 
-        socket.join(user.room);
+    // Welcome current user
+    socket.emit('message', formatMessage(bot, `Welcome to ${user.room}`));
 
-        // Welcome current user
-        socket.emit('message', formatMessage('botName', 'Welcome to ChatCord!'));
-
-        // Broadcast when a user connects
-        socket.broadcast
-            .to(user.room)
-            .emit(
-                'message',
-                formatMessage('botName', `${user.username} has joined the chat`)
-            );
-
-        // Send users and room info
-        client.to(user.room).emit('roomUsers', {
-            room: user.room,
-            users: getRoomUsers(user.room)
-        });
+    // Broadcast when a user connects
+    socket.broadcast
+      .to(user.room)
+      .emit(
+        'sentMessage',
+        formatMessage(bot, `${user.username} has joined the chat`)
+      );
+    io.to(user.room).emit('roomUsers', {
+      room: user.room,
+      users: getRoomUsers(user.room),
+      rooms: Object.keys(io.sockets.adapter.rooms)
     });
+  });
+  getChats('chillout');
+  // Listen for chatMessage
+  socket.on('chatMessage', msg => {
+    const user = getCurrentUser(socket.id);
 
-    // Listen for chatMessage
-    socket.on('chatMessage', msg => {
-        const user = getCurrentUser(socket.id);
+    var message = {
+      user: user.username,
+      room: user.room,
+      text: msg
+    }
 
-        client.to(user.room).emit('message', formatMessage(user.username, msg));
-    });
+    insertChats(message);
+    socket.emit('message', formatMessage('You', msg));
+    socket.broadcast
+      .to(user.room)
+      .emit(
+        'sentMessage',
+        formatMessage(user.username, msg)
+      );
+  });
 
-    // Runs when client disconnects
-    socket.on('disconnect', () => {
-        const user = userLeave(socket.id);
+  // Runs when client disconnects
+  socket.on('disconnect', () => {
+    const user = userLeave(socket.id);
 
-        if (user) {
-            client.to(user.room).emit(
-                'message',
-                formatMessage(botName, `${user.username} has left the chat`)
-            );
+    if (user) {
+      io.to(user.room).emit(
+        'message',
+        formatMessage(bot, `${user.username} has left the chat`)
+      );
 
-            // Send users and room info
-            client.to(user.room).emit('roomUsers', {
-                room: user.room,
-                users: getRoomUsers(user.room)
-            });
-        }
-    });
+      // Send users and room info
+      io.to(user.room).emit('roomUsers', {
+        room: user.room,
+        users: getRoomUsers(user.room)
+      });
+    }
+  });
 });
+
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
