@@ -21,18 +21,30 @@
                 <div class="col">
                     <div class="menu desktop">
                         <ul class="flex">
-                                <li class="flex justify-evenly items-center rounded-full">
-                                    <span>ROOMS</span>
-                                    <img src="./img/message.svg" alt="R">
-                                </li>
-                                <li class="flex justify-evenly items-center rounded-full rounded-full active">
-                                    <span>USERS</span>
-                                    <img class="mx-2" src="./img/users.svg" alt="U">
-                                </li>
-                                <li class="flex justify-evenly items-center rounded-full rounded-full">
-                                    <span>QUIT</span>
-                                    <img class="mx-2" src="./img/signout.svg" alt="Q">
-                                </li>
+                            <li class="mx-1 flex justify-evenly items-center rounded-full">
+                                <form action="/chat" class="w-full flex justify-center h-full">
+                                    <button type="submit" class="flex w-full justify-evenly items-center h-full">
+                                        <span>ROOMS</span>
+                                        <img src="./img/message.svg" alt="R">
+                                    </button>
+                                </form>
+                            </li>
+                            <li class="mx-1 flex justify-evenly items-center rounded-full rounded-full active">
+                                <form action="/users" class="w-full flex justify-center h-full">
+                                    <button type="submit" class="flex w-full justify-evenly items-center h-full">
+                                        <span>USERS</span>
+                                        <img class="mx-2" src="./img/users.svg" alt="U">
+                                    </button>
+                                </form>
+                            </li>
+                            <li class="mx-1 flex justify-evenly items-center rounded-full rounded-full">
+                                <form action="/" class="w-full flex justify-center h-full">
+                                    <button type="submit" class="flex w-full justify-evenly items-center h-full">
+                                        <span>QUIT</span>
+                                        <img class="mx-2" src="./img/signout.svg" alt="Q">
+                                    </button>
+                                </form>
+                            </li>
                         </ul>
                     </div>
                     <button class="dropdown mobile"><img src="./img/dropdown.svg" alt="="></button>

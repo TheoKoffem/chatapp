@@ -22,12 +22,20 @@
                     <div class="menu desktop">
                         <ul class="flex">
                             <li class="mx-1 flex justify-evenly items-center rounded-full active">
-                                <span>ROOMS</span>
-                                <img src="./img/message.svg" alt="R">
+                                <form action="" class="w-full flex justify-center h-full">
+                                    <button type="submit" class="flex w-full justify-evenly items-center h-full">
+                                        <span>ROOMS</span>
+                                        <img src="./img/message.svg" alt="R">
+                                    </button>
+                                </form>
                             </li>
                             <li class="mx-1 flex justify-evenly items-center rounded-full rounded-full">
-                                <span>USERS</span>
-                                <img class="mx-2" src="./img/users.svg" alt="U">
+                                <form action="/users" class="w-full flex justify-center h-full">
+                                    <button type="submit" class="flex w-full justify-evenly items-center h-full">
+                                        <span>USERS</span>
+                                        <img class="mx-2" src="./img/users.svg" alt="U">
+                                    </button>
+                                </form>
                             </li>
                             <li class="mx-1 flex justify-evenly items-center rounded-full rounded-full">
                                 <form action="/" class="w-full flex justify-center h-full">
@@ -131,10 +139,16 @@
                 </form>
             </div>
             <div class="row flex hidden mobile-nav h-full mobile-toggle">
-                <button class="flex justify-center items-center w-1/3 chat"><img src="./img/message.svg"
-                        alt="R"></button>
-                <button class="flex justify-center items-center w-1/3 users"><img src="./img/users.svg"
-                        alt="U"></button>
+                <form action="" class="flex justify-center items-center w-1/3 quit">
+                    <button type="submit"
+                        class="flex justify-center items-center w-full h-full users bg-transparent"><img
+                            src="./img/message.svg" alt="R"></button>
+                </form>
+                <form action="/users" class="flex justify-center items-center w-1/3 quit">
+                    <button type="submit"
+                        class="flex justify-center items-center w-full h-full users bg-transparent"><img
+                            src="./img/users.svg" alt="U"></button>
+                </form>
                 <form action="/" class="flex justify-center items-center w-1/3 quit">
                     <button type="submit" class="w-full h-full flex items-center justify-center bg-transparent"><img
                             src="./img/signout.svg" alt="Q"></button>

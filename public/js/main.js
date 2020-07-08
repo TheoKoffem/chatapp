@@ -10,7 +10,7 @@ const { username, room } = Qs.parse(location.search, {
 
 const socket = io();
 //Checks if theres a username
-if (username == undefined || username == '') {
+if (username == undefined || username == '' || username == "undefined") {
   window.location.replace("/");
 } else {
   //Sets header username
