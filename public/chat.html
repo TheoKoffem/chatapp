@@ -1,76 +1,42 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-    integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title>ChatCord App</title>
-</head>
-
-<body>
-  <div class="chat-container">
-    <header class="chat-header">
-      <h1><i class="fas fa-smile"></i> ChatCord</h1>
-      <a href="index.html" class="btn">Leave Room</a>
-    </header>
-    <main class="chat-main">
-      <div class="chat-sidebar">
-        <h3><i class="fas fa-comments"></i> Room Name:</h3>
-        <h2 id="room-name"></h2>
-        <h3><i class="fas fa-users"></i> Users</h3>
-        <ul id="users"></ul>
-      </div>
-      <div class="chat-messages"></div>
-    </main>
-    <div class="chat-form-container">
-      <form id="chat-form">
-        <input id="msg" type="text" placeholder="Enter Message" required autocomplete="off" />
-        <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
-      </form>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
-    integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="js/main.js"></script>
-</body>
-
-</html> -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>index</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/index.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/tailwind.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="row space-between">
-                <div class="col">
-                    <div class="title">Chatrooms</div>
-                    <p id="nickname-header"></p>
+    <header class="relative z-50">
+        <div class="header-container rounded-b-30 flex items-center md:px-12 justify-center md:justify-start">
+            <div class="row space-between flex w-full flex-row justify-between items-center px-8 md:p-0">
+                <div class="col flex items-center">
+                    <div class="title text-3xl">Chatrooms</div>
+                    <p class="pl-2" id="nickname-header"></p>
                 </div>
                 <div class="col">
                     <div class="menu desktop">
-                        <ul>
-                            <a href="#" class="active">
-                                <li>ROOMS<img src="./img/message.svg" alt="R"></li>
-                            </a>
-                            <a href="#">
-                                <li>USERS<img src="./img/users.svg" alt="U"></li>
-                            </a>
-                            <a href="#">
-                                <li>QUIT<img src="./img/signout.svg" alt="Q"></li>
-                            </a>
+                        <ul class="flex">
+                            <li class="mx-1 flex justify-evenly items-center rounded-full active">
+                                <span>ROOMS</span>
+                                <img src="./img/message.svg" alt="R">
+                            </li>
+                            <li class="mx-1 flex justify-evenly items-center rounded-full rounded-full">
+                                <span>USERS</span>
+                                <img class="mx-2" src="./img/users.svg" alt="U">
+                            </li>
+                            <li class="mx-1 flex justify-evenly items-center rounded-full rounded-full">
+                                <form action="/" class="w-full flex justify-center h-full">
+                                    <button type="submit" class="flex w-full justify-evenly items-center h-full">
+                                        <span>QUIT</span>
+                                        <img class="mx-2" src="./img/signout.svg" alt="Q">
+                                    </button>
+                                </form>
+                            </li>
                         </ul>
                     </div>
                     <button class="dropdown mobile"><img src="./img/dropdown.svg" alt="="></button>
@@ -79,99 +45,100 @@
         </div>
     </header>
     <div class="middle flex">
-        <aside class="flex">
-            <div class="side-container">
+        <aside class="hidden md:flex w-full md:w-2/6 relative mobile-toggle">
+            <div class="side-container w-full">
                 <div class="users"></div>
-                <div class="rooms">
-                    <div class="row">
-                        <form action="/chat" method="GET">
-                            <button class="room" id="chillout" name="room" value="chillout" type="submit" class="">
-                                <div class="col flex-col pl-25">
-                                    <div class="roomname">Chillout Place</div>
-                                    <div class="roomdesc">Don't Worry, Be Chatty</div>
-                                </div>
-                                <div class="col h-full pr-25">
-                                    <div class="usersjoined">69</div>
-                                </div>
-                            </button>
-                            <button class="room" id="nightlife" name="room" value="nightlife" type="submit" class="">
-                                <div class="col flex-col pl-25">
-                                    <div class="roomname ">Chillout Place</div>
-                                    <div class="roomdesc">Don't Worry, Be Chatty</div>
-                                </div>
-                                <div class="col h-full pr-25">
-                                    <div class="usersjoined">69</div>
-                                </div>
-                            </button>
-                            <button class="room" id="seriesnmovies" name="room" value="seriesnmovies" type="submit" class="">
-                                <div class="col flex-col pl-25">
-                                    <div class="roomname ">Series & Movies</div>
-                                    <div class="roomdesc">Don't Worry, Be Chatty</div>
-                                </div>
-                                <div class="col h-full pr-25">
-                                    <div class="usersjoined">69</div>
-                                </div>
-                            </button>
-                            <button class="room" id="sports" name="room" value="sports" type="submit" class="">
-                                <div class="col flex-col pl-25">
-                                    <div class="roomname ">Sports</div>
-                                    <div class="roomdesc">Don't Worry, Be Chatty</div>
-                                </div>
-                                <div class="col h-full pr-25">
-                                    <div class="usersjoined">69</div>
-                                </div>
-                            </button>
-                            <input type="hidden" value="" id="username" name="username">
-                        </form>
-                    </div>
+                <div class="rooms h-full">
+                    <form action="/chat" method="GET" class="flex justify-center flex-col items-center p-5">
+                        <button class="room rounded-t-bl-15 mt-2 p-5 flex justify-between" id="chillout" name="room"
+                            value="chillout" type="submit">
+                            <span class="col flex flex-col">
+                                <span class="roomname text-white text-left text-xl">Chillout Place</span>
+                                <span class="roomdesc text-left">Don't Worry, Be Chatty</span>
+                            </span>
+                            <span class="col h-full pr-25">
+                                <span id="users-chillout" class="usersjoined"></span>
+                            </span>
+                        </button>
+                        <button class="room rounded-t-bl-15 mt-2 p-5 flex justify-between" id="nightlife" name="room"
+                            value="nightlife" type="submit">
+                            <span class="col flex flex-col pl-25">
+                                <span class="roomname text-white text-left text-xl">Night Life</span>
+                                <span class="roomdesc text-left">Where you at tonight?</span>
+                            </span>
+                            <span class="col h-full pr-25">
+                                <span id="users-nightlife" class="usersjoined"></span>
+                            </span>
+                        </button>
+                        <button class="room rounded-t-bl-15 mt-2 p-5 flex justify-between" id="seriesandmovies"
+                            name="room" value="seriesandmovies" type="submit">
+                            <span class="col flex flex-col pl-25">
+                                <span class="roomname text-white text-left text-xl">Series & Movies</span>
+                                <span class="roomdesc text-left">Hey! What you looking at?</span>
+                            </span>
+                            <span class="col h-full pr-25">
+                                <span id="users-seriesandmovies" class="usersjoined"></span>
+                            </span>
+                        </button>
+                        <button class="room rounded-t-bl-15 mt-2 p-5 flex justify-between" id="sports" name="room"
+                            value="sports" type="submit">
+                            <span class="col flex flex-col pl-25">
+                                <span class="roomname text-white text-left text-xl">Sports</span>
+                                <span class="roomdesc text-left">Stay in shape</span>
+                            </span>
+                            <span class="col h-full pr-25">
+                                <span id="users-sports" class="usersjoined"></span>
+                            </span>
+                        </button>
+                        <input type="hidden" value="" id="username" name="username">
+                    </form>
                 </div>
             </div>
-
         </aside>
-        <main class="desktop chat-container flex-col text-white">
-            <!-- <div class="message received">
-                <div class="row flex">
-                    <div class="username"><b>Andrea</b></div>
-                    <div class="time">&nbsp; said @ 18.15</div>
-                </div>
-                <div class="row">
+        <main class="chat-container desktop-toggle flex flex-col w-full md:w-4/6 overflow-scroll mx-5">
+            <!-- <div class="message sent rounded-t-bl-25 w-2/3 p-5 my-3">
+                <div class="row flex pb-2">
+                    <div class="username"><b>You</b></div>
+                    <div class="time">&nbsp; @ ${message.date}</div>
+                  </div>
+                  <div class="row">
                     <div class="text">
-                        <p>Andrea is a long time away now! Is everything oke? I a’m just writing this long but useless
-                            piece of text because i just want to let you know what happens when someone writes a long
-                            long piece of text.Andrea is a long time away now! Is everything oke? I a’m just writing
-                            this long but useless
-                            piece of text because i just want to let you know what happens when someone writes a long
-                            long piece of text.</p>
+                        <p>${message.text}</p>
                     </div>
-                </div>
+                  </div>
             </div>
-            <div class="message sent">
-                <div class="row flex">
-                    <div class="username"><b>Andrea</b></div>
-                    <div class="time">&nbsp; said @ 18.15</div>
-                </div>
-                <div class="row">
+            <div class="message received rounded-t-br-25 w-2/3 p-5 my-3">
+                <div class="row flex pb-2">
+                    <div class="username"><b>Name</b></div>
+                    <div class="time">&nbsp; @ ${message.date}</div>
+                  </div>
+                  <div class="row">
                     <div class="text">
-                        <p>Andrea is a long time away now! Is everything oke? I a’m just writing this long but useless
-                            piece of text because i just want to let you know what happens when someone writes a long
-                            long piece of text.</p>
+                        <p>${message.text}</p>
                     </div>
-                </div>
+                  </div>
             </div> -->
         </main>
     </div>
-    <footer>
-        <div class="footer-container">
-            <div class="message-bar desktop">
-                <form class="message-form" id="chat-form">
-                    <input type="text" id="message-input" placeholder="Type your message"><button><img
-                            src="img/paperplane.svg" alt=">"></button>
+    <footer class="rounded-t-30 relative z-50">
+        <div class="footer-container pl-1/3 h-full">
+            <div class="message-bar desktop-toggle h-full flex items-center">
+                <form autocomplete="off" class="message-form w-full flex justify-center items-center px-5"
+                    id="chat-form">
+                    <input class="rounded-full" type="text" id="message-input" placeholder="Type your message">
+                    <button class="flex justify-center items-center rounded-full"><img src="img/paperplane.svg"
+                            alt=">"></button>
                 </form>
             </div>
-            <div class="row flex mobile mobile-nav">
-                <div class="col chat"><img src="./img/message.svg" alt="R"></div>
-                <div class="col users"><img src="./img/users.svg" alt="U"></div>
-                <div class="col quit"><img src="./img/signout.svg" alt="Q"></div>
+            <div class="row flex hidden mobile-nav h-full mobile-toggle">
+                <button class="flex justify-center items-center w-1/3 chat"><img src="./img/message.svg"
+                        alt="R"></button>
+                <button class="flex justify-center items-center w-1/3 users"><img src="./img/users.svg"
+                        alt="U"></button>
+                <form action="/" class="flex justify-center items-center w-1/3 quit">
+                    <button type="submit" class="w-full h-full flex items-center justify-center bg-transparent"><img
+                            src="./img/signout.svg" alt="Q"></button>
+                </form>
             </div>
         </div>
     </footer>
@@ -179,6 +146,7 @@
         integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="js/responsive.js"></script>
     <script src="js/main.js"></script>
 </body>
 

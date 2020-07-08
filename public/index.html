@@ -6,38 +6,38 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>index</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/index.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/tailwind.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
 </head>
 
 <body>
     <header>
-        <div class="header-container">
-            <div class="title pl-96">Enter Chatbox</div>
+        <div class="header-container rounded-b-30 flex items-center md:px-24 justify-center md:justify-start">
+            <div class="title md:text-3xl">Enter Chatbox</div>
         </div>
     </header>
-    <main>
-        <div class="home-container">
-            <div class="row">
-                <div class="main-container">
-                    <form action="/chat" method="GET">
-                        <input type="text" name="username" id="username" placeholder="Nickname"><button><img src="img/signin.svg" alt=">"></button>
+    <main class="home">
+        <div class="home-container h-full">
+            <div class="row h-full flex md:flex-row flex-col items-center">
+                <div class="col w-full md:w-7/12 md:pb-32 flex items-center md:h-full p-10 md:p-0">
+                    <form class="flex items-center w-full justify-center md:px-5" action="/chat" method="GET" autocomplete="off">
+                        <input type="text" name="username" class="w-full rounded-full" id="username" placeholder="Nickname"><button class="flex justify-center items-center rounded-full"><img src="img/signin.svg" alt=">"></button>
                     </form>
+                </div>
+                <div class="col w-full md:w-5/12 md:pb-32 flex items-center md:h-full justify-center md:justify-start">
                     <div class="main-text">
-                        <p>Here’s some information about this chat.
+                        <p class="md:p-10">Here’s some information about this chat.
                             Could be anything actually. Like, it’s soo
                             cool! Oh my god, it’s amazing! Nothing
                             beats this chat. Like, you can talk and
-                            other people talk back at ya!</p>
+                            other people talk back at ya!
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <footer>
-        <div class="footer-container">
-
-        </div>
-    </footer>
+    <footer class="rounded-t-30"></footer>
 </body>
 
 </html>

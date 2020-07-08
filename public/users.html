@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>index</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/tailwind.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+</head>
+
+<body>
+    <header class="relative z-50">
+        <div class="header-container rounded-b-30 flex items-center md:px-12 justify-center md:justify-start">
+            <div class="row space-between flex w-full flex-row justify-between items-center px-8 md:p-0">
+                <div class="col flex items-center">
+                    <div class="title text-3xl">Chatrooms</div>
+                    <p class="pl-2" id="nickname-header"></p>
+                </div>
+                <div class="col">
+                    <div class="menu desktop">
+                        <ul class="flex">
+                                <li class="flex justify-evenly items-center rounded-full">
+                                    <span>ROOMS</span>
+                                    <img src="./img/message.svg" alt="R">
+                                </li>
+                                <li class="flex justify-evenly items-center rounded-full rounded-full active">
+                                    <span>USERS</span>
+                                    <img class="mx-2" src="./img/users.svg" alt="U">
+                                </li>
+                                <li class="flex justify-evenly items-center rounded-full rounded-full">
+                                    <span>QUIT</span>
+                                    <img class="mx-2" src="./img/signout.svg" alt="Q">
+                                </li>
+                        </ul>
+                    </div>
+                    <button class="dropdown mobile"><img src="./img/dropdown.svg" alt="="></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+        integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/responsive.js"></script>
+    <script src="js/users.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+.chat-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .message {
+        color: $white;
+        &.sent {
+            background: $active-light;
+            align-self: flex-end;
+            .time {
+                color: $active-lighter;
+            }
+        }
+        &.received {
+            background: rgb(69, 69, 69);
+            background: linear-gradient(90deg, rgba(69, 69, 69, 1) 0%, rgba(43, 43, 43, 1) 100%);
+            .time {
+                color: $text-primary;
+            }
+        }
+        .time {
+            color: $text-primary;
+        }
+    }
+}
+.room {
+    max-width: 378px;
+    width: 100%;
+    cursor: pointer;
+    &:nth-child(even) {
+        background: #525252;
+    }
+    .roomdesc {
+        color: $text-secondary;
+    }
+    .usersjoined {
+        color: $text-secondary;
+    }
+}

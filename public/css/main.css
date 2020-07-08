@@ -1,0 +1,295 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #E3E3E3;
+}
+
+.rounded-b-30 {
+  border-radius: 0px 0px 30px 30px;
+}
+
+.rounded-t-30 {
+  border-radius: 30px 30px 0px 0px;
+}
+
+.rounded-t-bl-15 {
+  border-radius: 15px 15px 0px 15px;
+}
+
+.rounded-t-bl-25 {
+  border-radius: 25px 25px 0px 25px;
+}
+
+.rounded-t-br-25 {
+  border-radius: 25px 25px 25px 0px;
+}
+
+@media (max-width: 767px) {
+  body {
+    background: #292929;
+  }
+}
+
+.active {
+  background: #007EF4 !important;
+  color: #FFFFFF;
+}
+
+.active li {
+  color: #FFFFFF;
+}
+
+.active .roomdesc {
+  color: #90c9ff !important;
+}
+
+.active .usersjoined {
+  color: #FFFFFF !important;
+}
+
+.pl-1\/3 {
+  padding-left: 33.333333%;
+}
+
+@media (max-width: 767px) {
+  .pl-1\/3 {
+    padding-left: 0px;
+  }
+}
+
+.desktop {
+  display: none;
+}
+
+@media (min-width: 767px) {
+  .desktop {
+    display: flex;
+  }
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobile {
+    display: flex;
+  }
+}
+
+.header-container {
+  height: 141px;
+  background: #1F1F1F;
+}
+
+.header-container .title {
+  color: #FFFFFF;
+}
+
+@media (max-width: 767px) {
+  .header-container {
+    height: 109px;
+  }
+}
+
+.header-container ul li {
+  width: 143px;
+  height: 48px;
+  cursor: pointer;
+  background: #E3E3E3;
+}
+
+.header-container ul li img {
+  width: 16px;
+  height: 16px;
+}
+
+.header-container .dropdown img {
+  width: 30px;
+  height: 30px;
+}
+
+.header-container #nickname-header {
+  color: #606060;
+}
+
+aside {
+  box-shadow: 0px -30px 0px 0px #3c3c3c, 0px 30px 0px 0px #3c3c3c;
+  background: #3c3c3c;
+}
+
+@media (max-width: 768px) {
+  aside {
+    box-shadow: 0px -30px 0px 0px #292929, 0px 30px 0px 0px #292929;
+    background: #292929;
+  }
+}
+
+.home {
+  height: calc(100% - 248px);
+}
+
+@media (max-width: 767px) {
+  .home {
+    height: calc(100% - 216px);
+  }
+}
+
+.home form input {
+  max-width: 370px;
+  height: 54px;
+  background: #3c3c3c;
+  color: #CCCCCC;
+  padding-left: 10px;
+}
+
+.home form input::-moz-placeholder {
+  color: #CCCCCC;
+}
+
+.home form input:-ms-input-placeholder {
+  color: #CCCCCC;
+}
+
+.home form input::-ms-input-placeholder {
+  color: #CCCCCC;
+}
+
+.home form input::placeholder {
+  color: #CCCCCC;
+}
+
+.home form button {
+  width: 45px;
+  height: 45px;
+  background: #007EF4;
+  margin-left: -50px;
+}
+
+.home form button img {
+  width: 28px;
+}
+
+.home .main-text p {
+  max-width: 590px;
+}
+
+@media (max-width: 767px) {
+  .home .main-text p {
+    max-width: 268px;
+    color: #606060;
+  }
+}
+
+.middle {
+  height: calc(100% - 248px);
+}
+
+@media (max-width: 767px) {
+  .middle {
+    height: calc(100% - 216px);
+  }
+}
+
+.chat-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.chat-container::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-container .message {
+  color: #FFFFFF;
+}
+
+.chat-container .message.sent {
+  background: #007EF4;
+  align-self: flex-end;
+}
+
+.chat-container .message.sent .time {
+  color: #90c9ff;
+}
+
+.chat-container .message.received {
+  background: #454545;
+  background: linear-gradient(90deg, #454545 0%, #2b2b2b 100%);
+}
+
+.chat-container .message.received .time {
+  color: #606060;
+}
+
+.chat-container .message .time {
+  color: #606060;
+}
+
+.room {
+  max-width: 378px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.room:nth-child(even) {
+  background: #525252;
+}
+
+.room .roomdesc {
+  color: #CCCCCC;
+}
+
+.room .usersjoined {
+  color: #CCCCCC;
+}
+
+footer {
+  height: 107px;
+  background: #1F1F1F;
+}
+
+footer form input {
+  max-width: 838px;
+  width: 100%;
+  height: 48px;
+  background: #3c3c3c;
+  color: #CCCCCC;
+  padding-left: 10px;
+}
+
+footer form input::-moz-placeholder {
+  color: #CCCCCC;
+}
+
+footer form input:-ms-input-placeholder {
+  color: #CCCCCC;
+}
+
+footer form input::-ms-input-placeholder {
+  color: #CCCCCC;
+}
+
+footer form input::placeholder {
+  color: #CCCCCC;
+}
+
+footer form button {
+  width: 42px;
+  height: 42px;
+  background: #007EF4;
+  margin-left: -45px;
+}
+
+footer form button img {
+  width: 28px;
+}
+
+footer .mobile-nav img {
+  width: 16px;
+  height: 16px;
+  color: #FFFFFF;
+}
+

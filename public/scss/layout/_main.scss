@@ -1,0 +1,42 @@
+.home {
+    height: calc(100% - 248px);
+    @media (max-width: $breakpoint-md) {
+        height: calc(100% - 216px);
+    }
+    form {
+        input {
+            max-width: 370px;
+            height: 54px;
+            background: $placeholder;
+            color: $text-secondary;
+            padding-left: 10px;
+            &::placeholder {
+                color: $text-secondary;
+            }
+        }
+        button {
+            width: 45px;
+            height: 45px;
+            background: $active-light;
+            margin-left: -50px;
+            img {
+                width: 28px;
+            }
+        }
+    }
+    .main-text {
+        p {
+            max-width: 590px;
+            @media (max-width: $breakpoint-md) {
+                max-width: 268px;
+                color: $text-primary;
+            }
+        }
+    }
+}
+.middle {
+    height: calc(100% - 248px);
+    @media (max-width: $breakpoint-md) {
+        height: calc(100% - 216px);
+    }
+}

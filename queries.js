@@ -1,6 +1,5 @@
 const pg = require('pg');
 const moment = require('moment');
-const axios = require('axios').default;
 const { request } = require('express');
 const process_db = require("dotenv").config();
 const db_url = process.env.DATABASE_URL || process_db.parsed.DB_URL;
@@ -10,19 +9,27 @@ const client = new pg.Client({
 })
 client.connect();
 
-function getChats(room) {
-    // console.log(room, username)
-    client.query(`SELECT * FROM chats where room = $1`, [room]).then(res => {
-        //Not sure hoe ik deze ga pushen naar index.js
-    }).catch(e => console.error(e.stack))
-}
-console.log(getChats('chillout'));
-//Insert chats naar database
+//Get all chats from database
+const getChats = room => {
+    return new Promise((resolve, reject) => {
+      client.query('SELECT * FROM chats WHERE room = $1 LIMIT 10', [room])
+        .then(res => {
+          resolve(res.rows);
+          res.rows.forEach(element => {
+          });
+        })
+        .catch(err => {
+          reject(err);
+        });
+    })
+  }
+
+//Insert chats naar database 
 const insertChats = (request) => {
     const data = request;
 
-    client.query("INSERT INTO chats (user_name, room, chat_text, date_time) VALUES ($1, $2, $3, NOW())",
-        [data.user, data.room, data.text], (error, results) => {
+    client.query("INSERT INTO chats (user_name, room, chat_text, date_time) VALUES ($1, $2, $3, $4)",
+        [data.name, data.room, data.text, data.date], (error, results) => {
             if (error) {
                 throw error
             }
@@ -30,11 +37,11 @@ const insertChats = (request) => {
         })
 }
 
-const formatMessage = (username, text) => {
+const formatMessage = (name, text) => {
     return {
-        username,
+        name,
         text,
-        time: moment().format('h:mm a')
+        date: moment().format('DD MM YYYY hh:mm')
     };
 }
 const users = [];

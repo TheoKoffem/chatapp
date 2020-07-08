@@ -1,0 +1,8 @@
+aside {
+    box-shadow: 0px -30px 0px 0px $placeholder, 0px 30px 0px 0px $placeholder;
+    background: $placeholder;
+    @media (max-width: 768px) {
+        box-shadow: 0px -30px 0px 0px $secondary-dark, 0px 30px 0px 0px $secondary-dark;
+        background: $secondary-dark;
+    }
+}

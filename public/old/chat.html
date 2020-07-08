@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>index</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/index.css'>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="row space-between">
+                <div class="col">
+                    <div class="title">Chatrooms</div>
+                    <p id="nickname-header"></p>
+                </div>
+                <div class="col">
+                    <div class="menu desktop">
+                        <ul>
+                            <a href="#" class="active">
+                                <li>ROOMS<img src="./img/message.svg" alt="R"></li>
+                            </a>
+                            <a href="#">
+                                <li>USERS<img src="./img/users.svg" alt="U"></li>
+                            </a>
+                            <a href="#">
+                                <li>QUIT<img src="./img/signout.svg" alt="Q"></li>
+                            </a>
+                        </ul>
+                    </div>
+                    <button class="dropdown mobile"><img src="./img/dropdown.svg" alt="="></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="middle flex">
+        <aside class="flex">
+            <div class="side-container">
+                <div class="users"></div>
+                <div class="rooms">
+                    <div class="row">
+                        <form action="/chat" method="GET">
+                            <button class="room" id="chillout" name="room" value="chillout" type="submit" class="">
+                                <div class="col flex-col pl-25">
+                                    <div class="roomname">Chillout Place</div>
+                                    <div class="roomdesc">Don't Worry, Be Chatty</div>
+                                </div>
+                                <div class="col h-full pr-25">
+                                    <div class="usersjoined">69</div>
+                                </div>
+                            </button>
+                            <button class="room" id="nightlife" name="room" value="nightlife" type="submit" class="">
+                                <div class="col flex-col pl-25">
+                                    <div class="roomname ">Night life</div>
+                                    <div class="roomdesc">Don't Worry, Be Chatty</div>
+                                </div>
+                                <div class="col h-full pr-25">
+                                    <div class="usersjoined">69</div>
+                                </div>
+                            </button>
+                            <button class="room" id="seriesnmovies" name="room" value="seriesnmovies" type="submit" class="">
+                                <div class="col flex-col pl-25">
+                                    <div class="roomname ">Series & Movies</div>
+                                    <div class="roomdesc">Don't Worry, Be Chatty</div>
+                                </div>
+                                <div class="col h-full pr-25">
+                                    <div class="usersjoined">69</div>
+                                </div>
+                            </button>
+                            <button class="room" id="sports" name="room" value="sports" type="submit" class="">
+                                <div class="col flex-col pl-25">
+                                    <div class="roomname ">Sports</div>
+                                    <div class="roomdesc">Don't Worry, Be Chatty</div>
+                                </div>
+                                <div class="col h-full pr-25">
+                                    <div class="usersjoined">69</div>
+                                </div>
+                            </button>
+                            <input type="hidden" value="" id="username" name="username">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+        <main class="desktop chat-container flex-col text-white">
+        </main>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="message-bar desktop">
+                <form class="message-form" id="chat-form">
+                    <input type="text" id="message-input" placeholder="Type your message"><button><img
+                            src="img/paperplane.svg" alt=">"></button>
+                </form>
+            </div>
+            <div class="row flex mobile mobile-nav">
+                <div class="col chat"><img src="./img/message.svg" alt="R"></div>
+                <div class="col users"><img src="./img/users.svg" alt="U"></div>
+                <div class="col quit"><img src="./img/signout.svg" alt="Q"></div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+        integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
