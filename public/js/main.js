@@ -14,8 +14,9 @@ if (username == undefined || username == '' || username == "undefined") {
   window.location.replace("/");
 } else {
   //Sets header username
-  $('#username').val(username);
-  $('#nickname-header').html('#' + username);
+  $('.username-room').val(room);
+  $('.username').val(username);
+  $('.nickname-header').html('#' + username);
 }
 //redirects to default room is theres not room set
 if (room == undefined || room == '') {

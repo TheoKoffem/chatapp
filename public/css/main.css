@@ -111,7 +111,7 @@ body {
   height: 30px;
 }
 
-.header-container #nickname-header {
+.header-container .nickname-header {
   color: #606060;
 }
 

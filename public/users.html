@@ -16,25 +16,29 @@
             <div class="row space-between flex w-full flex-row justify-between items-center px-8 md:p-0">
                 <div class="col flex items-center">
                     <div class="title text-3xl">Chatrooms</div>
-                    <p class="pl-2" id="nickname-header"></p>
+                    <p class="pl-2 nickname-header"></p>
                 </div>
                 <div class="col">
                     <div class="menu desktop">
                         <ul class="flex">
                             <li class="mx-1 flex justify-evenly items-center rounded-full">
-                                <form action="/chat" class="w-full flex justify-center h-full">
+                                <form method="GET" action="/chat" class="w-full flex justify-center h-full">
                                     <button type="submit" class="flex w-full justify-evenly items-center h-full">
                                         <span>ROOMS</span>
                                         <img src="./img/message.svg" alt="R">
                                     </button>
+                                    <input type="hidden" class="username-room" name="room" value="">
+                                    <input type="hidden" class="username" name="username" value="">
                                 </form>
                             </li>
                             <li class="mx-1 flex justify-evenly items-center rounded-full rounded-full active">
-                                <form action="/users" class="w-full flex justify-center h-full">
+                                <form action="/users" method="GET" class="w-full flex justify-center h-full">
                                     <button type="submit" class="flex w-full justify-evenly items-center h-full">
                                         <span>USERS</span>
                                         <img class="mx-2" src="./img/users.svg" alt="U">
                                     </button>
+                                    <input type="hidden" class="username-room" name="room" value="">
+                                    <input type="hidden" class="username" name="username" value="">
                                 </form>
                             </li>
                             <li class="mx-1 flex justify-evenly items-center rounded-full rounded-full">
